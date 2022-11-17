@@ -1,0 +1,29 @@
+CREATE EXTERNAL TABLE IF NOT EXISTS tracks(
+    playlist_id STRING,
+    track_id STRING,
+    artist_id STRING,
+    date_exe DATE)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+stored as TEXTFILE
+location '/DATA/SPOTIFY/TRACKS/CSV';
+
+CREATE EXTERNAL TABLE IF NOT EXISTS artists(
+    name STRING,
+    id STRING,
+    date_exe DATE,
+    popularity INT)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+stored as TEXTFILE
+location '/DATA/SPOTIFY/ARTISTS/CSV';
+
+CREATE EXTERNAL TABLE IF NOT EXISTS in_out(
+    playlist_id STRING,
+    track_id STRING,
+    artist_id STRING,
+    date_exe DATE)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+stored as TEXTFILE
+location '/DATA/SPOTIFY/INT_OUT/CSV';
